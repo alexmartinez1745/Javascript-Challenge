@@ -6,15 +6,18 @@ console.log(tableData);
 let tbody = d3.select("tbody");
 
 // YOUR CODE HERE!
-tableData.forEach((sightings) => {
-    let row = tbody.append("tr");
-    Object.entries(sightings).forEach(([key, value]) => {
-      let cell = row.append("td");
-      cell.text(value);
-    });
-  });
-  
+// Create an arrow function for each sighting
+tableData.forEach((sighting) => {
+    
+  // Append each row to the table
+  let row = tbody.append("tr");
 
+  // Use object entries to append and display the table data
+  Object.entries(sighting).forEach(([key, value]) => {
+    let cell = row.append("td");
+    cell.text(value);
+  });
+});
 
 // let date = "1/11/2010";
 
