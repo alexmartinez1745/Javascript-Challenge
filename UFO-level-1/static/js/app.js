@@ -8,7 +8,6 @@ let tbody = d3.select("tbody");
 // YOUR CODE HERE!
 // Create an arrow function for each sighting
 tableData.forEach((sighting) => {
-    
   // Append each row to the table
   let row = tbody.append("tr");
 
@@ -19,8 +18,27 @@ tableData.forEach((sighting) => {
   });
 });
 
-// let date = "1/11/2010";
+// Use d3 to find button and create variable
+let button = d3.select("#filter-btn");
+let form = d3.select("#formgroup");
 
-// tableData.filter(dates) => {
-//     return dates.datetime === date;
-// }
+// Create event handler
+button.on("click", runEnter);
+form.on("submit", runEnter);
+
+// Event handler function
+function runEnter() {
+  // Preventing page from reload
+  d3.event.preventDefault();
+
+  // Get raw HTML by selecting where user inputs
+  let usrinput = d3.select("#datetime");
+
+  // Grab the value of the input from user
+  let usrvalue = usrinput.property("value");
+  console.log(usrvalue);
+
+  // Filter the data and display it to the console
+  let filtdata = tableData.filter((date) => date.datetime === usrvalue);
+  console.log(filtdata);
+}
