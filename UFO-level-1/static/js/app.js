@@ -13,18 +13,18 @@ tableData.forEach((sighting) => {
 
   // Use object entries to append and display the table data
   Object.entries(sighting).forEach(([key, value]) => {
-    let cell = row.append("td");
-    cell.text(value);
+    let tcell = row.append("td");
+    tcell.text(value);
   });
 });
 
 // Use d3 to find button and create variable
 let button = d3.select("#filter-btn");
-let form = d3.select("#formgroup");
+let form = d3.select("#form");
 
 // Create event handler
 button.on("click", runFilter);
-// form.on("submit", runEnter);
+form.on("submit", runFilter);
 
 // Event handler function
 function runFilter() {
@@ -52,8 +52,8 @@ function runFilter() {
 
     // Use object entries to append and display the table data
     Object.entries(filter).forEach(([key, value]) => {
-      let cell = row.append("td");
-      cell.text(value);
+      let tcell = row.append("td");
+      tcell.text(value);
     });
   });
 }
