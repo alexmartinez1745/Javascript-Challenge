@@ -23,11 +23,14 @@ let button = d3.select("#filter-btn");
 let form = d3.select("#formgroup");
 
 // Create event handler
-button.on("click", runEnter);
+button.on("click", runFilter);
 // form.on("submit", runEnter);
 
 // Event handler function
-function runEnter() {
+function runFilter() {
+  // Clear the current HTML table
+  tbody.html("");
+
   // Preventing page from reload
   d3.event.preventDefault();
 
@@ -42,10 +45,15 @@ function runEnter() {
   let filtdata = tableData.filter((date) => date.datetime === usrvalue);
   console.log(filtdata);
 
+  // Use filtered data to append the new table
+  filtdata.forEach((filter) => {
+    // Append each row to the table
+    let row = tbody.append("tr");
 
-  let list = d3.select("#ufo-table");
-  list.html("");
-  list.append("table").text(filtdata)
-};
-
-
+    // Use object entries to append and display the table data
+    Object.entries(filter).forEach(([key, value]) => {
+      let cell = row.append("td");
+      cell.text(value);
+    });
+  });
+}
