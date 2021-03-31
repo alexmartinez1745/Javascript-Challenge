@@ -36,15 +36,25 @@ function runFilter() {
   d3.event.preventDefault();
 
   // Get raw HTML by selecting where user inputs
-  let date = d3.select("#datetime");
-  let city = d3.select("#city");
-  let state = d3.select("#state");
-  let country = d3.select("#country");
-  let shape = d3.select("#shape");
-  
+  let userDate = d3.select("#datetime").property("value");
+  let userCity = d3.select("#city").property("value");
+  let userState = d3.select("#state").property("value");
+  let userCountry = d3.select("#country").property("value");
+  let userShape = d3.select("#shape").property("value");
+  // console.log(date, city, state, country, shape);
+
+  // Set variable for table data to use in statements
+  newFilter = tableData;
+
+  // If statments for multiple filters
+  if (userDate) {
+    newFilter = tableData.filter((date) => date.datetime === userDate);
+    console.log(newFilter);
+  }
+
 
   // Use filtered data to append the new table
-  filtdata.forEach((filter) => {
+  newFilter.forEach((filter) => {
     // Append each row to the table
     let row = tbody.append("tr");
 
