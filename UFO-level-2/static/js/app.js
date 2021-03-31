@@ -36,15 +36,12 @@ function runFilter() {
   d3.event.preventDefault();
 
   // Get raw HTML by selecting where user inputs
-  let usrinput = d3.select("#datetime");
-
-  // Grab the value of the input from user
-  let usrvalue = usrinput.property("value");
-  console.log(usrvalue);
-
-  // Filter the data and display it to the console
-  let filtdata = tableData.filter((date) => date.datetime === usrvalue);
-  console.log(filtdata);
+  let date = d3.select("#datetime");
+  let city = d3.select("#city");
+  let state = d3.select("#state");
+  let country = d3.select("#country");
+  let shape = d3.select("#shape");
+  
 
   // Use filtered data to append the new table
   filtdata.forEach((filter) => {
