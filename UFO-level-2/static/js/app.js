@@ -41,16 +41,32 @@ function runFilter() {
   let userState = d3.select("#state").property("value");
   let userCountry = d3.select("#country").property("value");
   let userShape = d3.select("#shape").property("value");
-  // console.log(date, city, state, country, shape);
+  console.log(userDate, userCity, userState, userCountry, userShape);
 
   // Set variable for table data to use in statements
   newFilter = tableData;
 
   // If statments for multiple filters
   if (userDate) {
-    newFilter = tableData.filter((date) => date.datetime === userDate);
-    console.log(newFilter);
+    newFilter = tableData.filter((doc) => doc.datetime === userDate);
   }
+
+  if (userCity) {
+    newFilter = tableData.filter((doc) => doc.city === userCity);
+  }
+  
+  if (userState) {
+    newFilter = tableData.filter((doc) => doc.state === userState);
+  }
+
+  if (userCountry) {
+    newFilter = tableData.filter((doc) => doc.country === userCountry);
+  }
+
+  if (userShape) {
+    newFilter = tableData.filter((doc) => doc.shape === userShape);
+  }
+
 
 
   // Use filtered data to append the new table
