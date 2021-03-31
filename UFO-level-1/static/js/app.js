@@ -24,7 +24,7 @@ let form = d3.select("#formgroup");
 
 // Create event handler
 button.on("click", runEnter);
-form.on("submit", runEnter);
+// form.on("submit", runEnter);
 
 // Event handler function
 function runEnter() {
@@ -41,4 +41,11 @@ function runEnter() {
   // Filter the data and display it to the console
   let filtdata = tableData.filter((date) => date.datetime === usrvalue);
   console.log(filtdata);
-}
+
+
+  let list = d3.select("#ufo-table");
+  list.html("");
+  list.append("table").text(filtdata)
+};
+
+
