@@ -48,15 +48,22 @@ function runFilter() {
 
   // If statments for multiple filters
   if (userDate) {
-    newFilter = tableData.filter((doc) => doc.datetime === userDate);
+    dateFilter = tableData.filter((doc) => doc.datetime === userDate);
+  }
+  else {
+    dateFilter = newFilter;
   }
 
   if (userCity) {
-    newFilter = tableData.filter((doc) => doc.city === userCity);
+    cityFilter = dateFilter.filter((doc) => doc.city === userCity);
   }
-  
+  else {
+    cityFilter = dateFilter;
+  }
+
+
   if (userState) {
-    newFilter = tableData.filter((doc) => doc.state === userState);
+    stateFilter = tableData.filter((doc) => doc.state === userState);
   }
 
   if (userCountry) {
@@ -66,9 +73,7 @@ function runFilter() {
   if (userShape) {
     newFilter = tableData.filter((doc) => doc.shape === userShape);
   }
-
-
-
+  
   // Use filtered data to append the new table
   newFilter.forEach((filter) => {
     // Append each row to the table
@@ -81,3 +86,5 @@ function runFilter() {
     });
   });
 }
+
+let userinput = [d3.select()]
