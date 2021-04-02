@@ -47,7 +47,9 @@ function runFilter() {
   newFilter = tableData;
 
   // If statments for multiple filters
+  // Empty array for date filter
   let dateFilter = [];
+  // See if user value corresponds to the data
   if (userDate) {
     newFilter.forEach((doc) => {
       if (doc.datetime === userDate) {
@@ -55,12 +57,14 @@ function runFilter() {
       }
     });
   }
-
+  // If filter has values, set it to our running filter
   if (dateFilter.length > 0) {
     newFilter = dateFilter
   }
 
+  // Empty array for city filter
   let cityFilter = [];
+  // See if user value corresponds to the data
   if (userCity) {
     newFilter.forEach((doc) => {
       if (doc.city === userCity) {
@@ -68,18 +72,25 @@ function runFilter() {
       }
     });
   }
-
+  // If filter has values, set it to our running filter
   if (cityFilter.length > 0) {
     newFilter = cityFilter;
   }
 
-
-  // if (userState) {
-  //   stateFilter = cityFilter.filter((doc) => doc.state === userState);
-  // }
-  // else {
-  //   stateFilter = cityFilter;
-  // }
+  // Empty array for state filter
+  let stateFilter = [];
+  // See if user value corresponds to the data
+  if (userState) {
+    newFilter.forEach((doc) => {
+      if (doc.state === userState) {
+        stateFilter.push(doc);
+      }
+    });
+  }
+  // If filter has values, set it to our running filter
+  if (stateFilter.length > 0) {
+    newFilter = stateFilter;
+  }
 
   // if (userCountry) {
   //   countryFilter = stateFilter.filter((doc) => doc.country === userCountry);
