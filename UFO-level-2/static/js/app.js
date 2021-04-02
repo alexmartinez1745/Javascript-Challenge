@@ -47,6 +47,7 @@ function runFilter() {
   newFilter = tableData;
 
   // If statments for multiple filters
+  // ####### DATE #########
   // Empty array for date filter
   let dateFilter = [];
   // See if user value corresponds to the data
@@ -62,6 +63,7 @@ function runFilter() {
     newFilter = dateFilter
   }
 
+  // ####### CITY #########
   // Empty array for city filter
   let cityFilter = [];
   // See if user value corresponds to the data
@@ -77,6 +79,7 @@ function runFilter() {
     newFilter = cityFilter;
   }
 
+  // ####### STATE #########
   // Empty array for state filter
   let stateFilter = [];
   // See if user value corresponds to the data
@@ -92,19 +95,37 @@ function runFilter() {
     newFilter = stateFilter;
   }
 
-  // if (userCountry) {
-  //   countryFilter = stateFilter.filter((doc) => doc.country === userCountry);
-  // }
-  // else {
-  //   countryFilter = stateFilter;
-  // }
+  // ####### COUNTRY #########
+  // Empty array for country filter
+  let countryFilter = [];
+  // See if user value corresponds to the data
+  if (userCountry) {
+    newFilter.forEach((doc) => {
+      if (doc.country === userCountry) {
+        countryFilter.push(doc);
+      }
+    });
+  }
+  // If filter has values, set it to our running filter
+  if (countryFilter.length > 0) {
+    newFilter = countryFilter;
+  }
 
-  // if (userShape) {
-  //   shapeFilter = countryFilter.filter((doc) => doc.shape === userShape);
-  // }
-  // else {
-  //   shapeFilter = countryFilter;
-  // }
+  // ####### SHAPE #########
+  // Empty array for shape filter
+  let shapeFilter = [];
+  // See if user value corresponds to the data
+  if (userShape) {
+    newFilter.forEach((doc) => {
+      if (doc.shape === userShape) {
+        shapeFilter.push(doc);
+      }
+    });
+  }
+  // If filter has values, set it to our running filter
+  if (shapeFilter.length > 0) {
+    newFilter = shapeFilter;
+  }
 
   // Use filtered data to append the new table
   newFilter.forEach((filter) => {
