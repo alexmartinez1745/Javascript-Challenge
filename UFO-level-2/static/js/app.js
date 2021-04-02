@@ -47,33 +47,54 @@ function runFilter() {
   newFilter = tableData;
 
   // If statments for multiple filters
+  let dateFilter = [];
   if (userDate) {
-    dateFilter = tableData.filter((doc) => doc.datetime === userDate);
-  }
-  else {
-    dateFilter = newFilter;
+    newFilter.forEach((doc) => {
+      if (doc.datetime === userDate) {
+        dateFilter.push(doc);
+      }
+    });
   }
 
+  if (dateFilter.length > 0) {
+    newFilter = dateFilter
+  }
+
+  let cityFilter = [];
   if (userCity) {
-    cityFilter = dateFilter.filter((doc) => doc.city === userCity);
+    newFilter.forEach((doc) => {
+      if (doc.city === userCity) {
+        cityFilter.push(doc);
+      }
+    });
   }
-  else {
-    cityFilter = dateFilter;
+
+  if (cityFilter.length > 0) {
+    newFilter = cityFilter;
   }
 
 
-  if (userState) {
-    stateFilter = tableData.filter((doc) => doc.state === userState);
-  }
+  // if (userState) {
+  //   stateFilter = cityFilter.filter((doc) => doc.state === userState);
+  // }
+  // else {
+  //   stateFilter = cityFilter;
+  // }
 
-  if (userCountry) {
-    newFilter = tableData.filter((doc) => doc.country === userCountry);
-  }
+  // if (userCountry) {
+  //   countryFilter = stateFilter.filter((doc) => doc.country === userCountry);
+  // }
+  // else {
+  //   countryFilter = stateFilter;
+  // }
 
-  if (userShape) {
-    newFilter = tableData.filter((doc) => doc.shape === userShape);
-  }
-  
+  // if (userShape) {
+  //   shapeFilter = countryFilter.filter((doc) => doc.shape === userShape);
+  // }
+  // else {
+  //   shapeFilter = countryFilter;
+  // }
+
   // Use filtered data to append the new table
   newFilter.forEach((filter) => {
     // Append each row to the table
@@ -86,5 +107,3 @@ function runFilter() {
     });
   });
 }
-
-let userinput = [d3.select()]
