@@ -41,7 +41,11 @@ function runFilter() {
   let userState = d3.select("#state").property("value");
   let userCountry = d3.select("#country").property("value");
   let userShape = d3.select("#shape").property("value");
-  console.log(userDate, userCity, userState, userCountry, userShape);
+  console.log(`FILTERS --> Date: ${userDate} 
+            City: ${userCity} 
+            State: ${userState} 
+            Country: ${userCountry} 
+            Shape: ${userShape}`);
 
   // Set variable for table data to use in statements
   newFilter = tableData;
@@ -56,11 +60,15 @@ function runFilter() {
       if (doc.datetime === userDate) {
         dateFilter.push(doc);
       }
+      else {
+        // alert("No further filter, try another date")
+        console.log("No further filter, try another date")
+      }
     });
   }
   // If filter has values, set it to our running filter
   if (dateFilter.length > 0) {
-    newFilter = dateFilter
+    newFilter = dateFilter;
   }
 
   // ####### CITY #########
@@ -71,6 +79,10 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.city === userCity) {
         cityFilter.push(doc);
+      }
+      else {
+        // alert("No further filter, try another city")
+        console.log("No further filter, try another city")
       }
     });
   }
@@ -88,6 +100,10 @@ function runFilter() {
       if (doc.state === userState) {
         stateFilter.push(doc);
       }
+      else {
+        // alert("No further filter, try another state")
+        console.log("No further filter, try another state")
+      }
     });
   }
   // If filter has values, set it to our running filter
@@ -103,6 +119,10 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.country === userCountry) {
         countryFilter.push(doc);
+      }
+      else {
+        // alert("No further filter, try another country")
+        console.log("No further filter, try another country")
       }
     });
   }
@@ -120,12 +140,20 @@ function runFilter() {
       if (doc.shape === userShape) {
         shapeFilter.push(doc);
       }
+      else {
+        // alert("No further filter, try another shape")
+        console.log("No further filter, try another shape")
+      }
     });
   }
   // If filter has values, set it to our running filter
   if (shapeFilter.length > 0) {
     newFilter = shapeFilter;
   }
+
+  // if (newFilter === tableData) {
+  //   alert("Please enter filter(s)")
+  // }
 
   // Use filtered data to append the new table
   newFilter.forEach((filter) => {
