@@ -59,16 +59,11 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.datetime === userDate) {
         dateFilter.push(doc);
+        console.log("Filter sucess!")
       }
-      else {
-        // alert("No further filter, try another date")
-        console.log("No further filter, try another date")
-      }
+      // If filter has values, set it to our running filter
+      newFilter = dateFilter;
     });
-  }
-  // If filter has values, set it to our running filter
-  if (dateFilter.length > 0) {
-    newFilter = dateFilter;
   }
 
   // ####### CITY #########
@@ -79,16 +74,11 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.city === userCity) {
         cityFilter.push(doc);
+        console.log("Filter sucess!")
       }
-      else {
-        // alert("No further filter, try another city")
-        console.log("No further filter, try another city")
-      }
+      // If filter has values, set it to our running filter
+      newFilter = cityFilter;
     });
-  }
-  // If filter has values, set it to our running filter
-  if (cityFilter.length > 0) {
-    newFilter = cityFilter;
   }
 
   // ####### STATE #########
@@ -99,16 +89,11 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.state === userState) {
         stateFilter.push(doc);
+        console.log("Filter sucess!")
       }
-      else {
-        // alert("No further filter, try another state")
-        console.log("No further filter, try another state")
-      }
+      // If filter has values, set it to our running filter
+      newFilter = stateFilter;
     });
-  }
-  // If filter has values, set it to our running filter
-  if (stateFilter.length > 0) {
-    newFilter = stateFilter;
   }
 
   // ####### COUNTRY #########
@@ -119,18 +104,13 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.country === userCountry) {
         countryFilter.push(doc);
+        console.log("Filter sucess!")
       }
-      else {
-        // alert("No further filter, try another country")
-        console.log("No further filter, try another country")
-      }
+      // If filter has values, set it to our running filter
+      newFilter = countryFilter;
     });
   }
-  // If filter has values, set it to our running filter
-  if (countryFilter.length > 0) {
-    newFilter = countryFilter;
-  }
-
+ 
   // ####### SHAPE #########
   // Empty array for shape filter
   let shapeFilter = [];
@@ -139,16 +119,11 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.shape === userShape) {
         shapeFilter.push(doc);
+        console.log("Filter sucess!")
       }
-      else {
-        // alert("No further filter, try another shape")
-        console.log("No further filter, try another shape")
-      }
+      // If filter has values, set it to our running filter
+      newFilter = shapeFilter;
     });
-  }
-  // If filter has values, set it to our running filter
-  if (shapeFilter.length > 0) {
-    newFilter = shapeFilter;
   }
 
   // if (newFilter === tableData) {
