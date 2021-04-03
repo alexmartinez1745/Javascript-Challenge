@@ -126,9 +126,10 @@ function runFilter() {
     });
   }
 
-  // if (newFilter === tableData) {
-  //   alert("Please enter filter(s)")
-  // }
+  // If no filters have been used, tell user in console to add filter(s)
+  if (newFilter === tableData) {
+    console.log("Please enter filter(s)")
+  }
 
   // Use filtered data to append the new table
   newFilter.forEach((filter) => {
