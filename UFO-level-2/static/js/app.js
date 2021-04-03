@@ -59,7 +59,7 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.datetime === userDate) {
         dateFilter.push(doc);
-        console.log("Filter sucess!")
+        console.log("Filter sucess!");
       }
       // If filter has values, set it to our running filter
       newFilter = dateFilter;
@@ -74,7 +74,7 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.city === userCity) {
         cityFilter.push(doc);
-        console.log("Filter sucess!")
+        console.log("Filter sucess!");
       }
       // If filter has values, set it to our running filter
       newFilter = cityFilter;
@@ -89,7 +89,7 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.state === userState) {
         stateFilter.push(doc);
-        console.log("Filter sucess!")
+        console.log("Filter sucess!");
       }
       // If filter has values, set it to our running filter
       newFilter = stateFilter;
@@ -104,13 +104,13 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.country === userCountry) {
         countryFilter.push(doc);
-        console.log("Filter sucess!")
+        console.log("Filter sucess!");
       }
       // If filter has values, set it to our running filter
       newFilter = countryFilter;
     });
   }
- 
+
   // ####### SHAPE #########
   // Empty array for shape filter
   let shapeFilter = [];
@@ -119,7 +119,7 @@ function runFilter() {
     newFilter.forEach((doc) => {
       if (doc.shape === userShape) {
         shapeFilter.push(doc);
-        console.log("Filter sucess!")
+        console.log("Filter sucess!");
       }
       // If filter has values, set it to our running filter
       newFilter = shapeFilter;
@@ -128,7 +128,7 @@ function runFilter() {
 
   // If no filters have been used, tell user in console to add filter(s)
   if (newFilter === tableData) {
-    console.log("Please enter filter(s)")
+    console.log("Please enter filter(s)");
   }
 
   // Use filtered data to append the new table
