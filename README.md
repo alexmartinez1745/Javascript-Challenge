@@ -5,16 +5,14 @@
 
 ## Background-Challenge
 
-WAKE UP SHEEPLE! The extra-terrestrial menace has come to Earth and we here at `ALIENS-R-REAL` have collected all of the eye-witness reports we could to prove it! All we need to do now is put this information online for the world to see and then the matter will finally be put to rest.
+Challenge collected all of the eye-witness reports of UFO sightings! Requested to put this information online for the world to see.
 
-There is just one tiny problem though... our collection is too large to search through manually. Even our most dedicated followers are complaining that they are having trouble locating specific reports in this mess.
-
-That's why we are hiring you. We need you to write code that will create a table dynamically based upon the dataset provided. We also need to allow our users to filter the table data for specific values.
+Create a table dynamically based upon the dataset provided. Allow filtering of the table data for specific values.
 
 ## Steps Taken
 ### Level 1: Automatic Table and Date Search
 
-* Create a basic HTML web page.
+* Created a basic HTML web page.
 
 * Using the UFO dataset provided in the form of an array of JavaScript objects, created code that appends a table to the web page and then adds new rows of data for each UFO sighting.
 
